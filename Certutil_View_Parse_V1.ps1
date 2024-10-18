@@ -1,4 +1,4 @@
-#$ListCert = certutil -view 
+$ListCert = certutil -view 
 $Output = @()
 
 #Splitting by Row segment, Skipping Schema and Statistics
