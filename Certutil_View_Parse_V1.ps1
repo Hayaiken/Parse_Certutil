@@ -1,3 +1,5 @@
+
+#Use On CA
 $ListCert = certutil -view 
 $Output = @()
 
