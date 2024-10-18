@@ -1,0 +1,41 @@
+On DC:
+    Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4768} | Where-Object {![string]::IsNullOrEmpty($_.Properties[11].Value.trim())}| ForEach-Object {
+        [PSCustomObject]@{
+            Time = $_.TimeCreated
+            RecordID = $_.RecordID
+            TargetUser = $_.Properties[0].Value
+            CertIssuer = $_.Properties[11].Value
+            CertSN = $_.Properties[12].Value
+            IPAddress = $_.Properties[9].Value
+        } 
+    } | ft
+
+-----------------------------------
+
+On CA:
+Event ID 4886:
+    Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4886} | ForEach-Object {
+        [PSCustomObject]@{
+            Time = $_.TimeCreated
+            RecordID = $_.RecordID
+            Requester = $_.Properties[1].Value
+            RequestID = $_.Properties[0].Value
+            RequestedFrom = $_.Properties[2].Value.trim()
+        } 
+    } | ft
+
+-----------------------------------
+
+On CA:
+Event ID 4887:
+    Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4887} | ForEach-Object {
+        [PSCustomObject]@{
+            Time = $_.TimeCreated
+            RecordID = $_.RecordID
+            Requester = $_.Properties[1].Value
+            RequestID = $_.Properties[0].Value
+            Subject = $_.Properties[5].Value
+            Disposition = $_.Properties[3].Value
+            RequestedFrom = $_.Properties[2].Value.trim()
+           } 
+    } | ft -Wrap
