@@ -46,6 +46,7 @@ foreach ($Template in ((($ListTemplate.Split("`n")| Select-Object -SkipLast 1 ) 
 $Output
 
 <#Vulnerable
+Scenario: ENROLLEE_SUPPLIES_SUBJECT, Client Auth, and Domain Users Can Enroll
 $Output | Where-Object {$_.TemplatePropSubjectNameFlags -like "*CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT -- 1*" -and
                         $_.TemplatePropSecurityDescriptor -match ( $Unprivileged -join '|') 
                         } |select-object "TemplatePropCommonName","TemplatePropValidityPeriod",
