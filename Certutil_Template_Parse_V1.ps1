@@ -4,7 +4,7 @@ $Unprivileged ="Domain Users","Everyone"
 $Output =@()
 
 #Splitting the Certutil Output by Template
-foreach ($Template in ((($ListTemplate.Split("`n")| Select-Object -SkipLast 2 ) -join "`n" -split "Template\[\d+\]:") | Select-Object -Skip 1 )){
+foreach ($Template in ((($ListTemplate.Split("`n")| Select-Object -SkipLast 1 ) -join "`n" -split "Template\[\d+\]:") | Select-Object -Skip 1 )){
     $ProcessTemplate = [PSCustomObject]@{}
     
     #Splitting Each Template by Line
