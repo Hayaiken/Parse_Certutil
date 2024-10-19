@@ -62,7 +62,7 @@ To Get specific column, use the example below
 
 $Output | Select-Object 'Request ID','Certificate Extensions' | fl
 
-If you want to list each extensions use the example below
+If you want to list each extension use the example below
 
 $Output |Select-Object "Requester Name", "Request ID" ,@{Name='Certificate Extensions Key Usage'; Expression={$_.'Certificate Extensions'.'Key Usage'}} | fl
 
