@@ -4,4 +4,8 @@ Parsing Cerutil. Currently refining...
 Use Certutil_View_Parse on CA
 
 Ongoing:
-  Working on ACL for each template
+  Dstemplate Parse
+  Vulnerable: ESC1 to ESC13
+
+
+
