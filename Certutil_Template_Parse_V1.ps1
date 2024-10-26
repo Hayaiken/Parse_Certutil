@@ -1,6 +1,5 @@
 
 $ListTemplate = certutil -v -template
-$Unprivileged ="Domain Users","Everyone"
 $Output =@()
 
 #Splitting the Certutil Output by Template
