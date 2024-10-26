@@ -1,4 +1,4 @@
-#$ListTemplate = certutil -v -dstemplate
+$ListTemplate = certutil -v -dstemplate
 $Output =@()
 
 #Splitting the Certutil Output by Template
